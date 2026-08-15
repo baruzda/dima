@@ -1,0 +1,29 @@
+name: Validate kit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate structure
+        run: bash scripts/validate.sh
+
+      - name: Smoke-test bootstrap
+        run: |
+          target="$(mktemp -d)"
+          bash scripts/bootstrap-project.sh "$target"
+          test -f "$target/AGENTS.md"
+          test -f "$target/docs/project/PROJECT_BRIEF.md"
+          test -f "$target/.agents/skills/project-kickoff/SKILL.md"
+          test -f "$target/.codex/agents/product-strategist.toml"
