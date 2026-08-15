@@ -20,6 +20,7 @@
 | [`08-quality-gates.md`](08-quality-gates.md) | Какие проверки обязательны |
 | [`09-prompting-guide.md`](09-prompting-guide.md) | Как ставить задачи Codex и ChatGPT |
 | [`10-official-references.md`](10-official-references.md) | На каких официальных возможностях основан комплект |
+| [`11-tool-stack.md`](11-tool-stack.md) | Какой инструмент использовать на каждом этапе работы |
 
 ## Проектные документы
 
