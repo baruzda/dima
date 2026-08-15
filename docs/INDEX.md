@@ -22,6 +22,7 @@
 | [`10-official-references.md`](10-official-references.md) | На каких официальных возможностях основан комплект |
 | [`11-tool-stack.md`](11-tool-stack.md) | Какой инструмент использовать на каждом этапе работы |
 | [`12-verification-strategy.md`](12-verification-strategy.md) | Как проводить E2E, QA, UX/UI, security, performance и documentation audits |
+| [`13-process-recipes.md`](13-process-recipes.md) | Какие skills, agents и проверки запускать для конкретного типа задачи |
 
 ## Проектные документы
 
