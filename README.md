@@ -57,6 +57,27 @@ Yandex Wordstat → проверка поискового спроса
 
 Принцип простой: **одна повторяющаяся задача → один предпочтительный инструмент**. Новый сервис не добавляется в основной стек только потому, что выглядит интересно.
 
+## Проверочный контур
+
+Проверки вынесены в отдельную стратегию: [`docs/12-verification-strategy.md`](docs/12-verification-strategy.md).
+
+Для значимой работы используется цикл:
+
+```text
+BUILD → VERIFY → REVIEW → FIX → RE-VERIFY → HANDOFF
+```
+
+Специализированные skills:
+
+```text
+quality-review  → общий независимый review
+e2e-review      → критические пользовательские сценарии
+visual-qa       → соответствие UI источнику правды
+ux-audit        → аудит flow, ошибок и когнитивной нагрузки
+docs-audit      → проверка source of truth и handoff
+release-audit   → финальный evidence-based verdict
+```
+
 ## Для первого знакомства
 
 Открой [`START_HERE.md`](START_HERE.md). Там один учебный маршрут без лишней теории.
@@ -139,8 +160,13 @@ bash scripts/validate.sh
 | `implementation-plan` | Нужно изучить код и составить план без изменений |
 | `build-feature` | Границы задачи согласованы, можно реализовывать |
 | `bug-triage` | Есть ошибка, но причина ещё не доказана |
-| `quality-review` | Нужна независимая проверка результата |
-| `docs-sync` | Нужно синхронизировать источник правды и передать контекст |
+| `quality-review` | Нужна общая независимая проверка результата |
+| `e2e-review` | Нужно доказать критический пользовательский сценарий целиком |
+| `visual-qa` | Нужно проверить UI против Figma/design spec |
+| `ux-audit` | Нужен независимый аудит пользовательского flow |
+| `docs-audit` | Нужно проверить актуальность документации и handoff |
+| `release-audit` | Нужен финальный verdict перед важным release/merge |
+| `docs-sync` | Нужно исправить и синхронизировать source of truth |
 
 ## Каталог агентов
 
@@ -152,8 +178,12 @@ bash scripts/validate.sh
 | `code_mapper` | Read-only: карта кода и рисков |
 | `implementation_worker` | Write: небольшая реализация по утверждённому плану |
 | `qa_reviewer` | Read-only: ошибки, регрессии, тесты |
+| `e2e_reviewer` | Read-only: критические E2E-сценарии |
+| `visual_qa_reviewer` | Read-only: visual QA и responsive |
 | `docs_keeper` | Write: документация и handoff |
+| `docs_auditor` | Read-only: проверка source of truth |
 | `security_reviewer` | Read-only: секреты, доверительные границы, опасные изменения |
+| `release_auditor` | Read-only: evidence и release verdict |
 
 ## Основные ограничения
 
